@@ -332,7 +332,7 @@ window.addEventListener('load', function () {
               throw err
             }
 
-            $('#tx-hash').empty().append($('<a target="_blank" href="https://etherscan.io/tx/' + hash + '">' + hash + '</a>'))
+            $('#tx-hash').empty().append($('<a target="_blank" href="https://polygonscan.com/tx/' + hash + '">' + hash + '</a>'))
             $('#tx-confirmation').modal('show')
           })
         })
@@ -644,7 +644,7 @@ function updateData () {
 
   if (currentAddress !== null) {
     $('#eth-address').html(currentAddress)
-    $('#eth-public-address a.etherscan-link').attr('href', 'https://etherscan.io/address/' + currentAddress).html(currentAddress)
+    $('#eth-public-address a.polygonscan-link').attr('href', 'https://polygonscan.com/address/' + currentAddress).html(currentAddress)
   } else {
     $('#eth-address').html('Not Set')
   }
@@ -682,10 +682,10 @@ function updateData () {
       let div = convertWeiToEth(r).toFixed(6)
       let refdiv = (dividendValue - div).toFixed(6);
 
-       $('.poh-refdiv').text(refdiv + ' ETH')
+       $('.poh-refdiv').text(refdiv + ' MATIC')
        $('.poh-refdiv-usd').text('(' + Number((refdiv * ethPrice).toFixed(2)).toLocaleString() + ' ' + currency + ')')
 
-       $('.poh-nonrefdiv').text(div + ' ETH')
+       $('.poh-nonrefdiv').text(div + ' MATIC')
        $('.poh-nonrefdiv-usd').text('(' + Number((convertWeiToEth(r) * ethPrice).toFixed(2)).toLocaleString() + ' ' + currency + ')')
     })
 
@@ -693,7 +693,7 @@ function updateData () {
     contract.myDividends(true, function (e, r) {
       let div = convertWeiToEth(r).toFixed(6)
 
-      $('.poh-div').text(div + ' ETH')
+      $('.poh-div').text(div + ' MATIC')
       $('.poh-div-usd').text('(' + Number((convertWeiToEth(r) * ethPrice).toFixed(2)).toLocaleString() + ' ' + currency + ')')
 
       if (dividendValue != div) {
@@ -705,7 +705,7 @@ function updateData () {
 
     web3js.eth.getBalance(currentAddress, function (e, r) {
       // We only want to show six DP in a wallet, consistent with MetaMask
-      $('.address-balance').text(convertWeiToEth(r).toFixed(6) + ' ETH')
+      $('.address-balance').text(convertWeiToEth(r).toFixed(6) + ' MATIC')
     })
   } else {
     $('#meta-mask-ui').addClass('logged-out').removeClass('logged-in')
@@ -714,7 +714,7 @@ function updateData () {
   contract.buyPrice(function (e, r) {
     let buyPrice = convertWeiToEth(r)
     globalBuyPrice = convertWeiToEth(r)
-    $('.poh-buy').text(buyPrice.toFixed(6) + ' ETH')
+    $('.poh-buy').text(buyPrice.toFixed(6) + ' MATIC')
     $('.poh-buy-usd').text('(' + Number((buyPrice * ethPrice).toFixed(2)).toLocaleString() + ' ' + currency + ')')
   })
 
@@ -725,7 +725,7 @@ function updateData () {
 
   contract.sellPrice(function (e, r) {
     let sellPrice = convertWeiToEth(r)
-    $('.poh-sell').text(sellPrice.toFixed(6) + ' ETH')
+    $('.poh-sell').text(sellPrice.toFixed(6) + ' MATIC')
     $('.poh-sell-usd').text('(' + Number((sellPrice * ethPrice).toFixed(2)).toLocaleString() + ' ' + currency + ')')
   })
 
