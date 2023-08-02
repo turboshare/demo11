@@ -252,7 +252,7 @@ function detectWeb3 () {
     web3Mode = 'metamask'
     currentAddress = web3js.eth.accounts[0]
   } else {
-    web3js = new Web3(new Web3.providers.HttpProvider('https://mainnet.infura.io/iAuiwox78xdSQSkLkeXB'))
+    web3js = new Web3(new Web3.providers.HttpProvider('https://polygon-mainnet.infura.io/v3/c2b1f9ce72254350a04f5759c898c8b3'))
     web3Mode = 'direct'
   }
 
