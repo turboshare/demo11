@@ -570,7 +570,7 @@ window.addEventListener('load', function () {
 
       var numTokens = r / 100000;
       
-      $('.number-of-tokens').text("With " + (number==0 ? 0 : number/100000) + " ETH you can buy " + numTokens.toFixed(3) + " Tokens");
+      $('.number-of-tokens').text("With " + (number==0 ? 0 : number/100000) + " MATIC you can buy " + numTokens.toFixed(3) + " Tokens");
       })
   })
 
@@ -658,7 +658,7 @@ function updateData () {
       $('.poh-balance').text(Number(tokenAmount.toFixed(2)).toLocaleString() + ' Tokens')
       contract.calculateEthereumReceived(r, function (e, r) {
         let bal = convertWeiToEth(r)
-        $('.poh-value').text(bal.toFixed(4) + ' ETH')
+        $('.poh-value').text(bal.toFixed(4) + ' MATIC')
         $('.poh-value-usd').text('(' + Number((convertWeiToEth(r * 1) * ethPrice).toFixed(2)).toLocaleString() + ' ' + currency + ')')
         if (tokenBalance !== 0) {
           if (bal > tokenBalance) {
